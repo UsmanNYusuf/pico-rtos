@@ -1,0 +1,21 @@
+# Build output
+build/
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.uf2
+*.map
+*.lst
+
+# Laptop test programs
+test_bits
+test_bits.exe
+
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
