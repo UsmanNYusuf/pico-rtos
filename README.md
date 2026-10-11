@@ -1,11 +1,15 @@
 # pico-rtos
 
 A small real-time operating system for the Arm Cortex-M0+, written in C and
-assembly with no vendor SDK, and a handheld game console that runs on it.
+assembly, and a handheld game console that runs on it.
 
 I'm building it to learn how embedded software works below the library level:
-what runs before `main`, how hardware is driven through registers, and how a
+how hardware is driven through registers, what runs before `main`, and how a
 processor switches between tasks.
+
+For now, the Raspberry Pi Pico SDK handles boot-up and the build. The
+drivers are my own, written against the hardware registers, and the plan is to
+replace the SDK's start-up code with my own once they work.
 
 **Status: early.** The repository currently holds the bit-manipulation helpers
 and their tests. Nothing has run on a board yet.
@@ -31,10 +35,10 @@ gcc -std=c11 -Wall -Wextra -Iinclude test/test_bits.c -o test_bits
 ### Version 1: the kernel
 
 - [x] Bit-manipulation helpers with laptop tests
-- [ ] Start-up code, vector table and linker script
-- [ ] Clock setup and an LED blink through raw register writes
+- [ ] LED blink through raw register writes
 - [ ] UART driver for serial output
 - [ ] Timer interrupt (SysTick)
+- [ ] Replace the SDK's start-up code with my own start-up code, vector table and linker script
 - [ ] Context switching and a pre-emptive round-robin scheduler
 - [ ] Sleep and semaphores
 - [ ] Fault handler that prints the processor's registers
